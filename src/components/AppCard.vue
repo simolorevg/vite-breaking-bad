@@ -1,6 +1,4 @@
 <script>
-import { stringifyExpression } from '@vue/compiler-core';
-
 export default {
     name: "AppCard"
 }

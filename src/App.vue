@@ -1,15 +1,20 @@
 <script>
 import AppCard from './components/AppCard.vue';
 import axios from 'axios';
+import { cardStore } from './cardStore';
 export default {
   components: {
     AppCard
   },
   data() {
     return {
+      cardStore
     }
   },
   mounted() {
+    axios.get(cardStore.apiURL).then((resp) => {
+      this.cardStore.cardsArray = resp.data.data;
+    })
   }
 }
 </script>
