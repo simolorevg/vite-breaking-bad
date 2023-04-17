@@ -14,7 +14,7 @@ export default {
             <img :src="image" alt="">
         </div>
         <div class="text-card">
-            <p>{{ text }}</p>
+            <h5>{{ text }}</h5>
             <p>{{ species }}</p>
         </div>
     </div>

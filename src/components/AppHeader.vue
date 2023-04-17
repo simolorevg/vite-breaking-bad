@@ -13,5 +13,6 @@ export default {
 
 .header {
     border: 1px solid black;
+    background-color: white;
 }
 </style>

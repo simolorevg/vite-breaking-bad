@@ -26,9 +26,9 @@ export default {
   <AppHeader />
   <div class="container-fluid mt-4">
     <div class="ms-card-container">
-      <div class="row row-cols-4 g-4">
+      <div class="row row-cols-3 g-4">
         <div class="col" v-for="(card, index) in cardArray" :key="index">
-          <AppCard :image="card.card_images[0].image_url" :text="card.name" />
+          <AppCard :image="card.card_images[0].image_url" :text="card.name" :species="card.type" />
         </div>
       </div>
     </div>
@@ -37,7 +37,6 @@ export default {
 
 <style lang="scss">
 .ms-card-container {
-  background-color: #966F33;
   width: 70%;
   margin: 0 auto;
 }
