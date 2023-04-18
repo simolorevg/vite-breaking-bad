@@ -16,11 +16,7 @@ export default {
     }
   },
   mounted() {
-    axios
-      .get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0")
-      .then((resp) => {
-        this.store.cards = resp.data.data;
-      })
+    this.cardFilter();
   },
   methods: {
     cardFilter() {
@@ -33,7 +29,9 @@ export default {
       }).then((resp) => {
         this.store.cards = resp.data.data;
       })
-      console.log(this.store.filterArchitype);
+    },
+    handleFilter() {
+      this.cardFilter();
     }
   }
 }
@@ -41,7 +39,7 @@ export default {
 
 <template>
   <AppHeader />
-  <AppCardSelect @filter="cardFilter" />
+  <AppCardSelect @filter="handleFilter" />
   <div class="container-fluid mt-4">
     <div class="ms-card-container">
       <div class="row row-cols-3 g-4">

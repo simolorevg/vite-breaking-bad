@@ -6,7 +6,7 @@ export default {
     data() {
         return {
             store,
-            archiArray: ['Alien', 'Ally of Justice', 'Ancient Gear']
+            archiArray: ['Alien', 'Ally of Justice', 'Ancient Gear', 'Noble Knight']
         }
     }
 }
@@ -15,7 +15,7 @@ export default {
     <div class="d-flex justify-content-end">
         <select name="status" id="status" class="form-select w-25" v-model="store.filterArchitype">
             <option value="">All</option>
-            <option v-for="architecture in archiArray" :value="architecture">{{ architecture }}</option>
+            <option v-for="architecture in archiArray" :key="architecture" :value="architecture">{{ architecture }}</option>
         </select>
         <button class="btn btn-success" @click="$emit('filter')">Cerca</button>
     </div>
