@@ -22,15 +22,15 @@ export default {
       })
   },
   methods: {
-    cardFilter() {
+    cardFilter(search) {
       axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0", {
         params: {
-          archetype: 
+          archetype: search
         }
       }).then((resp) => {
         this.cardArray = resp.data.data;
       })
-      console.log(this.cardArray.archetype);
+      console.log(search);
     }
   }
 }
@@ -38,7 +38,7 @@ export default {
 
 <template>
   <AppHeader />
-  <AppCardSelect @filter="cardFilter()" />
+  <AppCardSelect @filter="cardFilter" />
   <div class="container-fluid mt-4">
     <div class="ms-card-container">
       <div class="row row-cols-3 g-4">
