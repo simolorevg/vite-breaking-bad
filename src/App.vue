@@ -2,10 +2,12 @@
 import AppCard from './components/AppCard.vue';
 import axios from 'axios';
 import AppHeader from './components/AppHeader.vue';
+import AppCardSelect from './components/AppCardSelect.vue';
 export default {
   components: {
     AppCard,
-    AppHeader
+    AppHeader,
+    AppCardSelect
   },
   data() {
     return {
@@ -18,12 +20,25 @@ export default {
       .then((resp) => {
         this.cardArray = resp.data.data;
       })
+  },
+  methods: {
+    cardFilter() {
+      axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0", {
+        params: {
+          archetype: 
+        }
+      }).then((resp) => {
+        this.cardArray = resp.data.data;
+      })
+      console.log(this.cardArray.archetype);
+    }
   }
 }
 </script>
 
 <template>
   <AppHeader />
+  <AppCardSelect @filter="cardFilter()" />
   <div class="container-fluid mt-4">
     <div class="ms-card-container">
       <div class="row row-cols-3 g-4">
