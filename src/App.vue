@@ -22,7 +22,7 @@ export default {
     cardFilter() {
       const params = {}
       if (this.store.filterArchitype) {
-        params.architype = this.store.filterArchitype;
+        params.archetype = this.store.filterArchitype;
       }
       axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0", {
         params
