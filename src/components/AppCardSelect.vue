@@ -1,23 +1,23 @@
 <script>
+import { store } from '../store';
 export default {
     name: 'AppCardSelect',
-    emits: ['filter'],
+    emits: ["filter"],
     data() {
         return {
-            filterValue: ""
+            store,
+            archiArray: ['Alien', 'Ally of Justice', 'Ancient Gear']
         }
     }
 }
 </script>
 <template>
     <div class="d-flex justify-content-end">
-        <select name="status" id="status" class="form-select w-25" v-model="filterValue">
+        <select name="status" id="status" class="form-select w-25" v-model="store.filterArchitype">
             <option value="">All</option>
-            <option value="Alien">Alien</option>
-            <option value="Ancient Gear">Ancient Gear</option>
-            <option value="Ally of Justice">Ally of Justice</option>
+            <option v-for="architecture in archiArray" :value="architecture">{{ architecture }}</option>
         </select>
-        <button class="btn btn-success" @click="$emit('filter', filterValue)">Cerca</button>
+        <button class="btn btn-success" @click="$emit('filter')">Cerca</button>
     </div>
 </template>
 <style lang="scss" scoped>
